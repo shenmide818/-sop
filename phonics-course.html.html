@@ -1,0 +1,1971 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>小红书运营SOP：系统化增长与风险规避指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'sage': {
+                            50: '#f6f7f6',
+                            100: '#e3e7e3',
+                            200: '#c7d0c7',
+                            300: '#a1b2a1',
+                            400: '#7a927a',
+                            500: '#5c7a5c',
+                            600: '#486148',
+                            700: '#3c4f3c',
+                            800: '#334133',
+                            900: '#2d372d',
+                        },
+                        'accent': {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #f6f7f6 0%, #e3e7e3 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .citation-link {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #dc2626;
+        }
+        .citation-link:hover {
+            background-color: #fef2f2;
+        }
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.2s ease;
+        }
+        .toc-link:hover, .toc-link.active {
+            color: #5c7a5c;
+            border-left-color: #5c7a5c;
+            background-color: #f6f7f6;
+        }
+        .toc-link.sub {
+            padding-left: 2rem;
+            font-size: 0.8rem;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #c7d0c7, transparent);
+            margin: 3rem 0;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left: 4px solid #dc2626;
+        }
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .mermaid-control-btn:not(.reset-zoom) {
+                display: none;
+            }
+            .mermaid-controls {
+                top: auto;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Responsive adjustments for small screens */
+        @media (max-width: 768px) {
+            .hero-gradient img {
+                height: auto;
+                max-height: 300px;
+            }
+            .hero-gradient h1 {
+                font-size: 2rem;
+            }
+            .hero-gradient p {
+                font-size: 1rem;
+            }
+            .highlight-box .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="bg-gray-50 font-sans text-gray-800 overflow-x-hidden">
+    <!-- Fixed Table of Contents -->
+    <div class="toc-fixed">
+      <div class="mb-6">
+        <h3 class="font-serif font-semibold text-lg text-sage-700 mb-4">目录导航</h3>
+      </div>
+      <nav class="space-y-1">
+        <a href="#hero" class="toc-link">概述与核心策略</a>
+        <a href="#device-sop" class="toc-link">设备选择SOP</a>
+        <a href="#network-sop" class="toc-link">网络配置SOP</a>
+        <a href="#account-growth" class="toc-link">养号SOP</a>
+        <a href="#traffic-interception" class="toc-link">截流SOP</a>
+        <a href="#self-heating" class="toc-link">自热SOP</a>
+        <a href="#vertical-strategies" class="toc-link">垂直领域策略</a>
+        <a href="#risk-management" class="toc-link">风险管控</a>
+      </nav>
+    </div>
+
+    <!-- Mobile TOC Toggle -->
+    <button id="toc-toggle" class="fixed top-4 left-4 z-50 lg:hidden bg-white p-2 rounded-full shadow-lg">
+      <i class="fas fa-bars text-sage-600"></i>
+    </button>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="hero-gradient min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Left Column: Title and Overview -->
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-sage-800 leading-tight text-shadow">
+                  小红书运营SOP
+                </h1>
+                <p class="text-lg sm:text-xl text-sage-600 font-medium italic">
+                  系统化增长与风险规避指南
+                </p>
+              </div>
+
+              <div class="highlight-box p-6 rounded-lg">
+                <h3 class="font-semibold text-lg text-accent-700 mb-3">
+                  <i class="fas fa-shield-alt mr-2"></i>核心策略原则
+                </h3>
+                <div class="space-y-2 text-sm text-gray-700">
+                  <p><strong>一机一卡一IP</strong>：严格的设备隔离原则</p>
+                  <p><strong>内容垂直度</strong>：专注领域的深度运营</p>
+                  <p><strong>原创价值</strong>：高质量内容为王</p>
+                  <p><strong>精细运营</strong>：养号、截流、自热三位一体</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Visual Elements -->
+            <div class="relative">
+              <img src="https://kimi-web-img.moonshot.cn/img/oss-liuchengtu.hudunsoft.com/60a8ba75525d6f24574747888eec489d08963331.png" alt="小红书内容运营工作流程示意图" class="w-full max-w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl" size="medium" aspect="wide" query="小红书运营流程" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg">
+                <div class="flex items-center space-x-2">
+                  <div class="w-3 h-3 bg-accent-500 rounded-full animate-pulse"></div>
+                  <span class="text-sm font-medium text-gray-600">实时风险监控</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">账号安全</p>
+                  <p class="text-2xl font-bold text-sage-700">99.2%</p>
+                </div>
+                <i class="fas fa-shield-alt text-3xl text-sage-500"></i>
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">内容曝光</p>
+                  <p class="text-2xl font-bold text-accent-700">+340%</p>
+                </div>
+                <i class="fas fa-eye text-3xl text-accent-500"></i>
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">粉丝增长</p>
+                  <p class="text-2xl font-bold text-sage-700">+250%</p>
+                </div>
+                <i class="fas fa-users text-3xl text-sage-500"></i>
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">互动率</p>
+                  <p class="text-2xl font-bold text-accent-700">8.7%</p>
+                </div>
+                <i class="fas fa-heart text-3xl text-accent-500"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Core Strategy Section -->
+      <section class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">核心运营策略</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            通过系统化的流程，规避平台风控，提升账号权重，实现内容的自传播和商业价值
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+          <div class="space-y-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-ban text-accent-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl text-gray-800">限流规避策略</h3>
+              </div>
+              <div class="space-y-4 text-gray-600">
+                <p><strong>内容质量与合规性</strong>：确保内容高度原创，提供真实价值，避免违规关键词。使用<a href="https://www.163.com/dy/article/JTLUJ1A70556CVBQ.html" class="citation-link">[1]</a>专业敏感词检测工具进行自查。</p>
+                <p><strong>账号行为规范化</strong>：保持日常活跃度，避免异常互动行为，模拟真实用户使用习惯。</p>
+                <p><strong>设备网络独立性</strong>：严格遵守<a href="https://www.sohu.com/a/821440583_121825883" class="citation-link">[2]</a>&#34;一机一卡一IP&#34;原则，确保账号环境隔离。</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-chart-line text-sage-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl text-gray-800">权重提升策略</h3>
+              </div>
+              <div class="space-y-4 text-gray-600">
+                <p><strong>CES评分优化</strong>：提升笔记的点赞、收藏、评论、转发和关注数据表现。</p>
+                <p><strong>垂直度深耕</strong>：选择专注领域持续输出，建立账号专业形象。</p>
+                <p><strong>原创性坚持</strong>：形成独特内容风格，避免抄袭搬运风险。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-users text-accent-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl text-gray-800">粉丝吸引策略</h3>
+              </div>
+              <div class="space-y-4 text-gray-600">
+                <p><strong>精准内容定位</strong>：明确目标用户画像，解决实际痛点需求。</p>
+                <p><strong>互动社群建设</strong>：积极回复评论私信，建立深度粉丝关系。</p>
+                <p><strong>截流引流技巧</strong>：通过<a href="https://bk.taobao.com/k/xiaohongshu_230/c7667b8cb500e0b802e9d4b152a6e5ee.html" class="citation-link">[3]</a>合规截流方式获取精准流量。</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-share-alt text-sage-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl text-gray-800">自传播策略</h3>
+              </div>
+              <div class="space-y-4 text-gray-600">
+                <p><strong>高价值内容打造</strong>：提供实用、情感、社交多重价值。</p>
+                <p><strong>视觉优化提升</strong>：精心设计标题封面，提升内容吸引力。</p>
+                <p><strong>互动引导设计</strong>：巧妙设置引导语，激发用户分享欲望。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Management Framework -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="font-serif text-2xl font-semibold text-sage-800 mb-6 text-center">风险管控框架</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-lg mb-2">预防性控制</h4>
+              <p class="text-gray-600">建立严格的操作规范，从源头避免风险发生</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-search text-yellow-600 text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-lg mb-2">监测性控制</h4>
+              <p class="text-gray-600">实时监控账号状态，及时发现异常情况</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-tools text-green-600 text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-lg mb-2">纠正性控制</h4>
+              <p class="text-gray-600">制定应急处理方案，快速响应风险事件</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Device SOP Section -->
+      <section id="device-sop" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">设备选择SOP</h2>
+          <p class="text-xl text-gray-600">构建稳定、合规的设备环境是账号安全运营的基础</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-12">
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-xl text-sage-800 mb-6">
+              <i class="fas fa-mobile-alt mr-3 text-sage-600"></i>&#34;一机一卡一IP&#34;原则
+            </h3>
+            <div class="space-y-4">
+              <div class="border-l-4 border-accent-500 pl-4">
+                <h4 class="font-medium text-gray-800 mb-2">一机原则</h4>
+                <p class="text-gray-600">每个账号使用独立物理设备，严禁多账号切换登录</p>
+              </div>
+              <div class="border-l-4 border-sage-500 pl-4">
+                <h4 class="font-medium text-gray-800 mb-2">一卡原则</h4>
+                <p class="text-gray-600">每台设备配备独立实名手机卡，优先选择三大运营商</p>
+              </div>
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-medium text-gray-800 mb-2">一IP原则</h4>
+                <p class="text-gray-600">每个设备连接独立公网IP，避免共用WiFi网络</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-xl text-sage-800 mb-6">
+              <i class="fas fa-cogs mr-3 text-sage-600"></i>设备配置要求
+            </h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                <span class="text-gray-700">品牌选择</span>
+                <span class="text-gray-600">苹果、小米、OPPO、VIVO、华为等主流品牌</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                <span class="text-gray-700">存储空间</span>
+                <span class="text-gray-600">最低128GB，确保足够存储空间</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                <span class="text-gray-700">系统版本</span>
+                <span class="text-gray-600">Android 8.0+/iOS 12.0+</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-gray-700">安全设置</span>
+                <span class="text-gray-600">关闭生物识别，避免Root/越狱</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Equipment Solutions -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">特殊设备与应用方案</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-sage-50 rounded-lg">
+              <i class="fas fa-cloud text-3xl text-sage-600 mb-4"></i>
+              <h4 class="font-semibold mb-2">云手机方案</h4>
+              <p class="text-sm text-gray-600">基于云计算的虚拟手机服务，支持大规模账号管理</p>
+            </div>
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <i class="fas fa-network-wired text-3xl text-blue-600 mb-4"></i>
+              <h4 class="font-semibold mb-2">软路由配置</h4>
+              <p class="text-sm text-gray-600">通过VLAN划分实现网络环境隔离，精细化管理IP分配</p>
+            </div>
+            <div class="text-center p-6 bg-purple-50 rounded-lg">
+              <i class="fas fa-server text-3xl text-purple-600 mb-4"></i>
+              <h4 class="font-semibold mb-2">VPS/VPDN方案</h4>
+              <p class="text-sm text-gray-600">自建虚拟专用网络，提供独立稳定的网络出口</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prohibited Operations -->
+        <div class="highlight-box p-8 rounded-xl">
+          <h3 class="font-semibold text-xl text-accent-700 mb-6">
+            <i class="fas fa-ban mr-3"></i>严禁操作行为
+          </h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>多人多设备连续登录同一账号</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>使用特征明显的模拟器</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>多账号共用同一WiFi网络</span>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>设备上频繁切换不同账号</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>使用不可靠的多开群控工具</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                <span>使用公共WiFi或免费代理IP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Network SOP Section -->
+      <section id="network-sop" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">网络配置SOP</h2>
+          <p class="text-xl text-gray-600">构建稳定、独立、安全的网络环境是防止账号关联的核心</p>
+        </div>
+
+        <!-- Network Solutions Grid -->
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-signal text-green-600"></i>
+              </div>
+              <h3 class="font-semibold text-lg">流量卡方案</h3>
+            </div>
+            <p class="text-gray-600 mb-4">为每台设备配备独立运营商手机卡，确保动态IP环境隔离</p>
+            <div class="text-sm text-gray-500">
+              <p>• 成本：低</p>
+              <p>• 技术难度：简单</p>
+              <p>• 适用：小规模运营</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-route text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold text-lg">软路由方案</h3>
+            </div>
+            <p class="text-gray-600 mb-4">通过VLAN划分和策略路由，实现精细化网络管理</p>
+            <div class="text-sm text-gray-500">
+              <p>• 成本：中等</p>
+              <p>• 技术难度：中等</p>
+              <p>• 适用：中等规模运营</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-server text-purple-600"></i>
+              </div>
+              <h3 class="font-semibold text-lg">VPS/VPDN方案</h3>
+            </div>
+            <p class="text-gray-600 mb-4">自建虚拟专用网络，提供独立稳定的网络出口</p>
+            <div class="text-sm text-gray-500">
+              <p>• 成本：高</p>
+              <p>• 技术难度：复杂</p>
+              <p>• 适用：大规模专业运营</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Network Configuration Steps -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">网络环境配置步骤</h3>
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-8 h-8 bg-accent-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">1</div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 mb-2">IP隔离与分配</h4>
+                <p class="text-gray-600">确保每个设备拥有唯一的公网IP地址，通过VLAN技术实现二层网络隔离，策略性规划IP段分配</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-8 h-8 bg-accent-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">2</div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 mb-2">MAC地址与DNS设置</h4>
+                <p class="text-gray-600">修改设备MAC地址增加差异化，使用公共DNS服务（8.8.8.8/1.1.1.1）确保解析稳定</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-8 h-8 bg-accent-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">3</div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 mb-2">动态IP切换策略</h4>
+                <p class="text-gray-600">制定合理的IP切换频率，避免频繁切换触发风控，模拟真实用户使用场景</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Network Monitoring -->
+        <div class="bg-sage-50 p-8 rounded-xl">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">网络监控与维护</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">稳定性监控</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>定期测试带宽、延迟、丢包率</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>监控代理IP/VPS服务状态</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>建立故障排查流程</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>详细记录网络配置变更</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">成本优化与备份</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>根据账号重要性分配网络资源</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>准备备用流量卡和VPS节点</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>建立快速切换的备用方案</li>
+                <li class="flex items-center"><i class="fas fa-check text-sage-500 mr-2"></i>平衡成本与性能需求</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Account Growth SOP -->
+      <section id="account-growth" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">养号SOP</h2>
+          <p class="text-xl text-gray-600">通过模拟真实用户行为，提升账号初始权重和平台信任度</p>
+        </div>
+
+        <!-- Account Preparation -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">账号准备与注册</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">账号来源选择</h4>
+              <div class="space-y-3">
+                <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                  <h5 class="font-medium text-green-800">推荐：运营商厅卡</h5>
+                  <p class="text-sm text-green-700">在运营商营业厅实名办理的流量卡，权重高稳定性好</p>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                  <h5 class="font-medium text-yellow-800">备选：正规渠道号</h5>
+                  <p class="text-sm text-yellow-700">地推号或拦截号，需确保号码&#34;干净&#34;无违规记录</p>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                  <h5 class="font-medium text-red-800">谨慎：号商购买</h5>
+                  <p class="text-sm text-red-700">存在较高风险，需充分测试验证</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">注册信息完善</h4>
+              <div class="space-y-4">
+                <div class="border-l-4 border-sage-500 pl-4">
+                  <h5 class="font-medium text-gray-800">昵称设置</h5>
+                  <p class="text-sm text-gray-600">垂直领域+关键词+随机数字，如&#34;美妆达人小雅_88&#34;</p>
+                </div>
+                <div class="border-l-4 border-sage-500 pl-4">
+                  <h5 class="font-medium text-gray-800">头像选择</h5>
+                  <p class="text-sm text-gray-600">与领域相关、清晰美观的图片，提升专业感</p>
+                </div>
+                <div class="border-l-4 border-sage-500 pl-4">
+                  <h5 class="font-medium text-gray-800">简介优化</h5>
+                  <p class="text-sm text-gray-600">简洁概括账号价值，自然融入领域关键词</p>
+                </div>
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h5 class="font-medium text-gray-800">实名认证</h5>
+                  <p class="text-sm text-gray-600">提升账号信任度和权重，主账号建议完成</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growth Timeline -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">养号周期与每日动作</h3>
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-medium text-gray-700">养号进度</span>
+              <span class="text-sm text-gray-500">7天标准周期</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-accent-500 h-2 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-4">
+            <div class="text-center p-4 bg-sage-50 rounded-lg">
+              <div class="w-12 h-12 bg-sage-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">1-2</div>
+              <h4 class="font-medium mb-2">初期阶段</h4>
+              <p class="text-sm text-gray-600">浏览推荐内容，搜索领域关键词，建立兴趣标签</p>
+            </div>
+            <div class="text-center p-4 bg-blue-50 rounded-lg">
+              <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">3-4</div>
+              <h4 class="font-medium mb-2">互动阶段</h4>
+              <p class="text-sm text-gray-600">点赞收藏优质笔记，关注同领域博主，参与评论互动</p>
+            </div>
+            <div class="text-center p-4 bg-green-50 rounded-lg">
+              <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">5-6</div>
+              <h4 class="font-medium mb-2">内容阶段</h4>
+              <p class="text-sm text-gray-600">发布1-2篇高质量原创笔记，测试初始流量表现</p>
+            </div>
+            <div class="text-center p-4 bg-purple-50 rounded-lg">
+              <div class="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">7+</div>
+              <h4 class="font-medium mb-2">稳定阶段</h4>
+              <p class="text-sm text-gray-600">维持日常活跃度，正式进入内容运营周期</p>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-4">每日具体动作清单</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 class="font-medium text-gray-700 mb-2">浏览行为</h5>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• 累计30分钟+浏览推荐内容</li>
+                  <li>• 搜索5-10个领域相关关键词</li>
+                  <li>• 查看搜索结果页笔记</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-medium text-gray-700 mb-2">互动行为</h5>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• 点赞5-10篇优质相关笔记</li>
+                  <li>• 收藏3-5篇高价值内容</li>
+                  <li>• 发布2-3条有深度评论</li>
+                  <li>• 关注2-3个同领域头部博主</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Indicators -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">养号效果判断与禁忌</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-green-700 mb-4">
+                <i class="fas fa-check-circle mr-2"></i>成功指标
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                  <span>笔记24小时内获得100+初始浏览量</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                  <span>有一定量的点赞、评论和收藏</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                  <span>能通过标题或关键词正常搜索到</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                  <span>首页推荐出现相关领域内容</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-red-700 mb-4">
+                <i class="fas fa-times-circle mr-2"></i>严格禁忌
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                  <span>严禁发布任何形式的营销内容</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                  <span>严禁频繁修改昵称、头像、简介</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                  <span>严禁使用第三方刷量工具</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                  <span>严禁一机多号操作</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Traffic Interception SOP -->
+      <section id="traffic-interception" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">截流SOP</h2>
+          <p class="text-xl text-gray-600">主动出击的引流策略，在目标用户聚集地获取精准流量</p>
+        </div>
+
+        <!-- Interception Strategy Overview -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">截流策略概述</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                <h4 class="font-medium text-blue-800 mb-2">截流定义</h4>
+                <p class="text-sm text-blue-700 mb-3">在同领域或竞品账号热门内容下，通过巧妙互动将对方流量引导至自己账号的主动引流策略</p>
+                <h4 class="font-medium text-blue-800 mb-2">核心目标</h4>
+                <p class="text-sm text-blue-700">以较低成本快速获取大量精准目标粉丝，适用于账号冷启动阶段</p>
+              </div>
+            </div>
+            <div>
+              <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                <h4 class="font-medium text-green-800 mb-3">主要截流方式</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-green-700">
+                    <i class="fas fa-comment mr-2"></i>
+                    <span><strong>评论区截流</strong>：最常见、风险较低的方式</span>
+                  </div>
+                  <div class="flex items-center text-sm text-green-700">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span><strong>私信截流</strong>：更直接但风险较高的方式</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment Interception Strategy -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">评论区截流策略</h3>
+
+          <div class="mb-8">
+            <h4 class="font-medium text-gray-800 mb-4">目标笔记选择标准</h4>
+            <div class="grid md:grid-cols-4 gap-4">
+              <div class="text-center p-4 bg-red-50 rounded-lg">
+                <i class="fas fa-fire text-2xl text-red-500 mb-2"></i>
+                <h5 class="font-medium text-red-800">高热度</h5>
+                <p class="text-xs text-red-600 mt-1">点赞评论收藏数据高</p>
+              </div>
+              <div class="text-center p-4 bg-blue-50 rounded-lg">
+                <i class="fas fa-bullseye text-2xl text-blue-500 mb-2"></i>
+                <h5 class="font-medium text-blue-800">高相关</h5>
+                <p class="text-xs text-blue-600 mt-1">内容与账号定位相关</p>
+              </div>
+              <div class="text-center p-4 bg-green-50 rounded-lg">
+                <i class="fas fa-clock text-2xl text-green-500 mb-2"></i>
+                <h5 class="font-medium text-green-800">时效性</h5>
+                <p class="text-xs text-green-600 mt-1">一周内新发布内容</p>
+              </div>
+              <div class="text-center p-4 bg-purple-50 rounded-lg">
+                <i class="fas fa-comments text-2xl text-purple-500 mb-2"></i>
+                <h5 class="font-medium text-purple-800">争议性</h5>
+                <p class="text-xs text-purple-600 mt-1">能引发广泛讨论</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h4 class="font-medium text-gray-800 mb-4">评论内容策略</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-4">
+                <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                  <h5 class="font-medium text-green-800 mb-2">✅ 有效策略</h5>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• 提供价值：补充延伸或有见地观点</li>
+                    <li>• 制造悬念：激发用户好奇心</li>
+                    <li>• 体现专业性：展示专业知识</li>
+                    <li>• 软性引导：通过价值吸引点击</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="p-4 border-l-4 border-red-500 bg-red-50">
+                  <h5 class="font-medium text-red-800 mb-2">❌ 禁忌行为</h5>
+                  <ul class="text-sm text-red-700 space-y-1">
+                    <li>• 直白硬广：&#34;关注我&#34;、&#34;看我主页&#34;</li>
+                    <li>• 无意义评论：&#34;666&#34;、&#34;好棒&#34;</li>
+                    <li>• 重复刷屏：相同内容多次发布</li>
+                    <li>• 导流信息：微信号、二维码等</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-3">互动与引导流程</h4>
+            <div class="flex items-center space-x-4 text-sm">
+              <div class="flex-1 text-center">
+                <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">1</div>
+                <p class="text-gray-600">发布价值评论</p>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400"></i>
+              <div class="flex-1 text-center">
+                <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">2</div>
+                <p class="text-gray-600">及时互动回复</p>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400"></i>
+              <div class="flex-1 text-center">
+                <div class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">3</div>
+                <p class="text-gray-600">自然引导主页</p>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400"></i>
+              <div class="flex-1 text-center">
+                <div class="w-10 h-10 bg-accent-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">4</div>
+                <p class="text-gray-600">转化为粉丝</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Private Message Strategy -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">私信截流策略</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">最佳时机选择</h4>
+              <div class="space-y-3">
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">✓</div>
+                  <div>
+                    <p class="font-medium text-gray-800">用户主动回复评论时</p>
+                    <p class="text-sm text-gray-600">表明对你产生了兴趣，不易引起反感</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">✓</div>
+                  <div>
+                    <p class="font-medium text-gray-800">用户点赞评论后</p>
+                    <p class="text-sm text-gray-600">表示认可你的观点，是建立联系的好时机</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">私信内容要点</h4>
+              <div class="space-y-3">
+                <div class="p-3 bg-blue-50 rounded">
+                  <p class="text-sm text-blue-800"><strong>真诚友好</strong>：从感谢对方互动开始</p>
+                </div>
+                <div class="p-3 bg-green-50 rounded">
+                  <p class="text-sm text-green-800"><strong>提供价值</strong>：分享额外资料或清单</p>
+                </div>
+                <div class="p-3 bg-purple-50 rounded">
+                  <p class="text-sm text-purple-800"><strong>自然引导</strong>：建立信任后再引导关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+            <h4 class="font-medium text-yellow-800 mb-2">
+              <i class="fas fa-exclamation-triangle mr-2"></i>风险提醒
+            </h4>
+            <p class="text-sm text-yellow-700">私信截流风险较高，容易被用户举报骚扰。建议使用小号操作，控制发送频率，避免过度打扰。</p>
+          </div>
+        </div>
+
+        <!-- Effect Monitoring -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">效果监测与风险规避</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <i class="fas fa-chart-line text-3xl text-blue-600 mb-4"></i>
+              <h4 class="font-medium mb-2">数据评估</h4>
+              <p class="text-sm text-gray-600">监测新增粉丝数、主页访问量、互动率等关键指标</p>
+            </div>
+            <div class="text-center p-6 bg-green-50 rounded-lg">
+              <i class="fas fa-sync-alt text-3xl text-green-600 mb-4"></i>
+              <h4 class="font-medium mb-2">策略优化</h4>
+              <p class="text-sm text-gray-600">分析转化效果最好的笔记类型和评论风格，持续优化</p>
+            </div>
+            <div class="text-center p-6 bg-red-50 rounded-lg">
+              <i class="fas fa-shield-alt text-3xl text-red-600 mb-4"></i>
+              <h4 class="font-medium mb-2">风险控制</h4>
+              <p class="text-sm text-gray-600">使用小号操作，避免刷屏骚扰，遵守平台规则</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Self-Heating SOP -->
+      <section id="self-heating" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">自热SOP</h2>
+          <p class="text-xl text-gray-600">通过人为操作快速提升笔记热度，触发平台推荐算法</p>
+        </div>
+
+        <!-- Self-Heating Overview -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">自热策略概述</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-medium text-blue-800 mb-3">自热定义</h4>
+              <p class="text-sm text-blue-700 mb-3">通过一系列人为操作，在短时间内快速提升单篇笔记或整个账号的热度，使其进入更大的流量池，获得大量曝光</p>
+              <h4 class="font-medium text-blue-800 mb-2">核心目标</h4>
+              <p class="text-sm text-blue-700">模拟并放大优质笔记的自然传播过程，触发平台推荐算法</p>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <h5 class="font-medium text-green-800 mb-2">优质内容基础</h5>
+                <p class="text-sm text-green-700">自热基础必须是有潜力成为爆款的高质量笔记</p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <h5 class="font-medium text-purple-800 mb-2">可控资源支持</h5>
+                <p class="text-sm text-purple-700">需要矩阵账号或社群进行集中互动支持</p>
+              </div>
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <h5 class="font-medium text-orange-800 mb-2">精准时机把握</h5>
+                <p class="text-sm text-orange-700">在发布后1-2小时黄金时间内进行操作</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matrix Construction -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">矩阵建设与内容互推</h3>
+          <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="text-center p-6 bg-red-50 rounded-lg">
+              <i class="fas fa-crown text-3xl text-red-600 mb-4"></i>
+              <h4 class="font-medium mb-2">主账号</h4>
+              <p class="text-sm text-gray-600">发布核心内容，是自热操作的主要受益者</p>
+            </div>
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <i class="fas fa-comments text-3xl text-blue-600 mb-4"></i>
+              <h4 class="font-medium mb-2">互动小号</h4>
+              <p class="text-sm text-gray-600">在主账号笔记下进行高质量评论、点赞和转发</p>
+            </div>
+            <div class="text-center p-6 bg-green-50 rounded-lg">
+              <i class="fas fa-share-alt text-3xl text-green-600 mb-4"></i>
+              <h4 class="font-medium mb-2">分发账号</h4>
+              <p class="text-sm text-gray-600">转发主账号内容，扩大传播范围</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-4">协同作战策略</h4>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">1</div>
+                <div>
+                  <p class="font-medium text-gray-800">主账号发布深度内容</p>
+                  <p class="text-sm text-gray-600">发布高质量原创笔记，设置互动话题</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">2</div>
+                <div>
+                  <p class="font-medium text-gray-800">互动小号补充评论</p>
+                  <p class="text-sm text-gray-600">从不同角度补充观点，提出问题引导讨论</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">3</div>
+                <div>
+                  <p class="font-medium text-gray-800">分发账号扩大传播</p>
+                  <p class="text-sm text-gray-600">转发内容并附上推荐理由，形成合力</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Implementation Plan -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">自热实施与稳定</h3>
+          <div class="mb-8">
+            <h4 class="font-medium text-gray-800 mb-4">自热计划与排期</h4>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-4 py-3 text-left font-medium text-gray-700">时间点</th>
+                    <th class="px-4 py-3 text-left font-medium text-gray-700">执行动作</th>
+                    <th class="px-4 py-3 text-left font-medium text-gray-700">负责账号</th>
+                    <th class="px-4 py-3 text-left font-medium text-gray-700">预期效果</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-4 py-3 text-gray-800">发布后5分钟</td>
+                    <td class="px-4 py-3 text-gray-600">第一条&#34;神评论&#34;</td>
+                    <td class="px-4 py-3 text-gray-600">互动小号A</td>
+                    <td class="px-4 py-3 text-gray-600">引发初步讨论</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-gray-800">发布后15分钟</td>
+                    <td class="px-4 py-3 text-gray-600">点赞和回复评论</td>
+                    <td class="px-4 py-3 text-gray-600">互动小号B/C</td>
+                    <td class="px-4 py-3 text-gray-600">营造热烈氛围</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-gray-800">发布后30分钟</td>
+                    <td class="px-4 py-3 text-gray-600">社群引导真实用户</td>
+                    <td class="px-4 py-3 text-gray-600">社群账号</td>
+                    <td class="px-4 py-3 text-gray-600">引入真实互动</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-gray-800">发布后1-2小时</td>
+                    <td class="px-4 py-3 text-gray-600">持续互动维护</td>
+                    <td class="px-4 py-3 text-gray-600">所有矩阵号</td>
+                    <td class="px-4 py-3 text-gray-600">维持热度增长</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">数据监测要点</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 bg-blue-50 rounded">
+                  <span class="text-gray-700">浏览量增长</span>
+                  <span class="text-blue-600 font-medium">实时监控</span>
+                </div>
+                <div class="flex justify-between items-center p-3 bg-green-50 rounded">
+                  <span class="text-gray-700">互动率变化</span>
+                  <span class="text-green-600 font-medium">每15分钟</span>
+                </div>
+                <div class="flex justify-between items-center p-3 bg-purple-50 rounded">
+                  <span class="text-gray-700">推荐流量</span>
+                  <span class="text-purple-600 font-medium">每小时</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">调整策略</h4>
+              <div class="space-y-3 text-sm text-gray-600">
+                <p><strong>数据增长良好</strong>：继续执行计划，增加互动深度</p>
+                <p><strong>增长缓慢</strong>：更换互动小号，调整评论引导性</p>
+                <p><strong>数据异常</strong>：暂停操作，分析原因调整策略</p>
+                <p><strong>达到预期</strong>：逐步减少人为干预，转为自然增长</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Long-term Maintenance -->
+        <div class="bg-sage-50 p-8 rounded-xl">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">稳定自热与长期维护</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <i class="fas fa-heart text-3xl text-accent-500 mb-4"></i>
+              <h4 class="font-medium mb-2">持续互动</h4>
+              <p class="text-sm text-gray-600">继续回复评论区用户提问，保持笔记活跃度</p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-thumbtack text-3xl text-blue-500 mb-4"></i>
+              <h4 class="font-medium mb-2">内容置顶</h4>
+              <p class="text-sm text-gray-600">将表现优异的笔记置顶，获得更多持续曝光</p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-recycle text-3xl text-green-500 mb-4"></i>
+              <h4 class="font-medium mb-2">二次创作</h4>
+              <p class="text-sm text-gray-600">剪辑后重新发布，延长内容生命周期</p>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-white rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-3">转化目标</h4>
+            <p class="text-gray-600">将一次性的自热效果转化为账号的长期权重和粉丝增长，建立稳定的内容传播渠道。</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Vertical Strategies -->
+      <section id="vertical-strategies" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">垂直领域运营策略</h2>
+          <p class="text-xl text-gray-600">针对不同垂直领域的差异化运营策略</p>
+        </div>
+
+        <!-- Strategy Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Beauty -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-magic text-pink-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">美妆领域</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>内容方向</strong>：肤质细分、场景妆容、产品测评、成分分析</p>
+              <p><strong>视觉要求</strong>：高清妆效图、对比图、详细教程视频</p>
+              <p><strong>合规要点</strong>：避免功效性断言，不夸大宣传效果</p>
+              <p><strong>爆款要素</strong>：真实测评、专业人设、实用技巧</p>
+            </div>
+          </div>
+
+          <!-- Fashion -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-tshirt text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">穿搭领域</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>风格定位</strong>：明确穿搭风格，持续输出相关内容</p>
+              <p><strong>身材细分</strong>：针对不同身材提供专属搭配方案</p>
+              <p><strong>场景化</strong>：通勤、约会、度假等特定场合搭配</p>
+              <p><strong>视觉呈现</strong>：高质量出图，清晰标注品牌信息</p>
+            </div>
+          </div>
+
+          <!-- Food -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-utensils text-orange-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">美食领域</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>内容方向</strong>：食谱教程、探店分享、美食测评</p>
+              <p><strong>视觉要求</strong>：精美诱人的食物图片和视频</p>
+              <p><strong>实用信息</strong>：详细步骤、配料清单、店铺信息</p>
+              <p><strong>用户互动</strong>：鼓励交作业，回复烹饪问题</p>
+            </div>
+          </div>
+
+          <!-- Travel -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-map-marked-alt text-teal-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">旅行领域</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>攻略内容</strong>：详尽的目的地攻略，包含交通住宿信息</p>
+              <p><strong>独特体验</strong>：发掘小众目的地，分享新奇体验</p>
+              <p><strong>实用信息</strong>：准确时效的信息，加入主观感受</p>
+              <p><strong>视觉呈现</strong>：图文结合，注重故事性和情感表达</p>
+            </div>
+          </div>
+
+          <!-- Knowledge -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-graduation-cap text-indigo-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">知识分享</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>内容深度</strong>：专业技能、行业洞察、学习方法论</p>
+              <p><strong>呈现方式</strong>：将复杂知识简单化、趣味化</p>
+              <p><strong>系列化内容</strong>：拆解大主题，系统化输出</p>
+              <p><strong>专业人设</strong>：建立权威形象，积极答疑解惑</p>
+            </div>
+          </div>
+
+          <!-- Product Recommendations -->
+          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-shopping-bag text-emerald-600 text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg">好物推荐</h3>
+            </div>
+            <div class="space-y-3 text-sm text-gray-600">
+              <p><strong>品类细分</strong>：专注特定品类，如彩妆、家居、数码</p>
+              <p><strong>真实测评</strong>：多维度客观评价，真实使用体验</p>
+              <p><strong>场景推荐</strong>：围绕特定场景进行产品推荐</p>
+              <p><strong>合规要求</strong>：商业合作明确标注&#34;广告&#34;或&#34;合作&#34;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical Strategy Comparison -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">各垂直领域运营要点对比</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-4 py-3 text-left font-medium text-gray-700">领域</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-700">视觉要求</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-700">内容重点</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-700">互动方式</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-700">合规风险</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="px-4 py-3 font-medium text-pink-600">美妆</td>
+                  <td class="px-4 py-3 text-gray-600">高清妆效、对比图</td>
+                  <td class="px-4 py-3 text-gray-600">真实测评、专业技巧</td>
+                  <td class="px-4 py-3 text-gray-600">提问妆容技巧</td>
+                  <td class="px-4 py-3 text-gray-600">功效宣称、夸大宣传</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-blue-600">穿搭</td>
+                  <td class="px-4 py-3 text-gray-600">高质量全身照、细节图</td>
+                  <td class="px-4 py-3 text-gray-600">搭配方案、身材修饰</td>
+                  <td class="px-4 py-3 text-gray-600">询问购买链接</td>
+                  <td class="px-4 py-3 text-gray-600">品牌侵权、价格争议</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-orange-600">美食</td>
+                  <td class="px-4 py-3 text-gray-600">精美食物特写、过程图</td>
+                  <td class="px-4 py-3 text-gray-600">食谱教程、探店体验</td>
+                  <td class="px-4 py-3 text-gray-600">询问食谱细节</td>
+                  <td class="px-4 py-3 text-gray-600">版权问题、食品安全</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-teal-600">旅行</td>
+                  <td class="px-4 py-3 text-gray-600">风景人文、攻略地图</td>
+                  <td class="px-4 py-3 text-gray-600">实用攻略、独特体验</td>
+                  <td class="px-4 py-3 text-gray-600">询问具体路线</td>
+                  <td class="px-4 py-3 text-gray-600">信息时效、安全提示</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-indigo-600">知识分享</td>
+                  <td class="px-4 py-3 text-gray-600">信息图表、流程图</td>
+                  <td class="px-4 py-3 text-gray-600">专业干货、学习方法</td>
+                  <td class="px-4 py-3 text-gray-600">提问专业问题</td>
+                  <td class="px-4 py-3 text-gray-600">知识准确性、版权问题</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-emerald-600">好物推荐</td>
+                  <td class="px-4 py-3 text-gray-600">产品展示、使用场景</td>
+                  <td class="px-4 py-3 text-gray-600">真实测评、对比分析</td>
+                  <td class="px-4 py-3 text-gray-600">询问购买链接</td>
+                  <td class="px-4 py-3 text-gray-600">广告合规、真实性</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Risk Management -->
+      <section id="risk-management" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+          <h2 class="font-serif text-4xl font-semibold text-sage-800 mb-4">风险管控</h2>
+          <p class="text-xl text-gray-600">系统性的风险识别、评估与控制策略</p>
+        </div>
+
+        <!-- Risk Categories -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-exclamation-triangle text-red-600"></i>
+              </div>
+              <h3 class="font-semibold text-red-700">内容风险</h3>
+            </div>
+            <div class="space-y-2 text-sm text-gray-600">
+              <p>• 违规关键词检测</p>
+              <p>• 原创性验证</p>
+              <p>• 广告合规性</p>
+              <p>• 敏感话题规避</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-mobile-alt text-orange-600"></i>
+              </div>
+              <h3 class="font-semibold text-orange-700">设备风险</h3>
+            </div>
+            <div class="space-y-2 text-sm text-gray-600">
+              <p>• 账号关联识别</p>
+              <p>• IP地址异常</p>
+              <p>• 设备指纹检测</p>
+              <p>• 多开工具识别</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-users text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold text-blue-700">行为风险</h3>
+            </div>
+            <div class="space-y-2 text-sm text-gray-600">
+              <p>• 异常互动模式</p>
+              <p>• 刷量工具检测</p>
+              <p>• 频率控制不当</p>
+              <p>• 骚扰举报风险</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-shield-alt text-purple-600"></i>
+              </div>
+              <h3 class="font-semibold text-purple-700">合规风险</h3>
+            </div>
+            <div class="space-y-2 text-sm text-gray-600">
+              <p>• 平台规则变化</p>
+              <p>• 法律法规遵守</p>
+              <p>• 知识产权侵权</p>
+              <p>• 商业合作规范</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Management Framework -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+          <h3 class="font-semibold text-xl text-sage-800 mb-6">风险管控框架</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h4 class="font-medium text-green-700 mb-4">
+                <i class="fas fa-shield-alt mr-2"></i>预防措施
+              </h4>
+              <div class="space-y-3">
+                <div class="p-3 bg-green-50 rounded">
+                  <h5 class="font-medium text-green-800 text-sm mb-1">内容审核机制</h5>
+                  <p class="text-xs text-green-700">建立敏感词库，使用专业工具检测</p>
+                </div>
+                <div class="p-3 bg-green-50 rounded">
+                  <h5 class="font-medium text-green-800 text-sm mb-1">设备隔离规范</h5>
+                  <p class="text-xs text-green-700">严格执行&#34;一机一卡一IP&#34;原则</p>
+                </div>
+                <div class="p-3 bg-green-50 rounded">
+                  <h5 class="font-medium text-green-800 text-sm mb-1">行为模拟策略</h5>
+                  <p class="text-xs text-green-700">模拟真实用户行为模式，控制频率</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-blue-700 mb-4">
+                <i class="fas fa-search mr-2"></i>监测体系
+              </h4>
+              <div class="space-y-3">
+                <div class="p-3 bg-blue-50 rounded">
+                  <h5 class="font-medium text-blue-800 text-sm mb-1">实时监控系统</h5>
+                  <p class="text-xs text-blue-700">监控账号状态、内容表现、互动数据</p>
+                </div>
+                <div class="p-3 bg-blue-50 rounded">
+                  <h5 class="font-medium text-blue-800 text-sm mb-1">异常预警机制</h5>
+                  <p class="text-xs text-blue-700">设置阈值，及时发现异常波动</p>
+                </div>
+                <div class="p-3 bg-blue-50 rounded">
+                  <h5 class="font-medium text-blue-800 text-sm mb-1">平台规则跟踪</h5>
+                  <p class="text-xs text-blue-700">关注政策变化，及时调整策略</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-red-700 mb-4">
+                <i class="fas fa-tools mr-2"></i>应对策略
+              </h4>
+              <div class="space-y-3">
+                <div class="p-3 bg-red-50 rounded">
+                  <h5 class="font-medium text-red-800 text-sm mb-1">紧急处理流程</h5>
+                  <p class="text-xs text-red-700">限流、封禁等突发情况处理预案</p>
+                </div>
+                <div class="p-3 bg-red-50 rounded">
+                  <h5 class="font-medium text-red-800 text-sm mb-1">申诉恢复机制</h5>
+                  <p class="text-xs text-red-700">准备充分证据，合理申诉</p>
+                </div>
+                <div class="p-3 bg-red-50 rounded">
+                  <h5 class="font-medium text-red-800 text-sm mb-1">备份转移方案</h5>
+                  <p class="text-xs text-red-700">多账号备份，快速转移运营重心</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Response -->
+        <div class="highlight-box p-8 rounded-xl">
+          <h3 class="font-semibold text-xl text-accent-700 mb-6">
+            <i class="fas fa-exclamation-triangle mr-3"></i>紧急情况处理指南
+          </h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">限流处理流程</h4>
+              <div class="space-y-3">
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">1</div>
+                  <div>
+                    <p class="font-medium text-gray-800">冷静分析原因</p>
+                    <p class="text-sm text-gray-600">检查近期内容、操作行为、网络环境</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">2</div>
+                  <div>
+                    <p class="font-medium text-gray-800">立即停止可疑操作</p>
+                    <p class="text-sm text-gray-600">暂停发布，删除或修改违规内容</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">3</div>
+                  <div>
+                    <p class="font-medium text-gray-800">进入冷静期</p>
+                    <p class="text-sm text-gray-600">降低发布频率，专注高质量原创内容</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-800 mb-4">申诉恢复策略</h4>
+              <div class="space-y-3">
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">1</div>
+                  <div>
+                    <p class="font-medium text-gray-800">收集证据材料</p>
+                    <p class="text-sm text-gray-600">原创证明、合规说明、操作记录</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">2</div>
+                  <div>
+                    <p class="font-medium text-gray-800">合理申诉</p>
+                    <p class="text-sm text-gray-600">清晰有理有据地阐述情况</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs mt-0.5">3</div>
+                  <div>
+                    <p class="font-medium text-gray-800">耐心等待处理</p>
+                    <p class="text-sm text-gray-600">平台审核需要一定时间，避免重复申诉</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-sage-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center">
+            <h3 class="font-serif text-2xl font-semibold mb-4">小红书运营SOP指南</h3>
+            <p class="text-sage-200 mb-6">系统化增长与风险规避的专业解决方案</p>
+            <div class="flex justify-center space-x-6 text-sage-300">
+              <a href="#" class="hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>操作指南
+              </a>
+              <a href="#" class="hover:text-white transition-colors">
+                <i class="fas fa-shield-alt mr-2"></i>风险管控
+              </a>
+              <a href="#" class="hover:text-white transition-colors">
+                <i class="fas fa-chart-line mr-2"></i>增长策略
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#5c7a5c',
+                primaryTextColor: '#2d372d',
+                primaryBorderColor: '#486148',
+                lineColor: '#5c7a5c',
+                secondaryColor: '#e3e7e3',
+                tertiaryColor: '#f6f7f6',
+                background: '#ffffff',
+                mainBkg: '#f6f7f6',
+                secondBkg: '#e3e7e3',
+                tertiaryBkg: '#ffffff',
+                // Enhanced contrast colors for different node types
+                primaryBorderColor: '#486148',
+                primaryTextColor: '#2d372d',
+                secondaryTextColor: '#3c4f3c',
+                tertiaryTextColor: '#334133',
+                // Specific colors for different node types with good contrast
+                cScale0: '#5c7a5c',
+                cScale1: '#dc2626', 
+                cScale2: '#2563eb',
+                cScale3: '#d97706',
+                cScale4: '#7c3aed',
+                cScale5: '#0891b2',
+                cScale6: '#be185d',
+                cScale7: '#65a30d',
+                // Text colors for contrast
+                cScaleLabel0: '#ffffff',
+                cScaleLabel1: '#ffffff',
+                cScaleLabel2: '#ffffff', 
+                cScaleLabel3: '#ffffff',
+                cScaleLabel4: '#ffffff',
+                cScaleLabel5: '#ffffff',
+                cScaleLabel6: '#ffffff',
+                cScaleLabel7: '#ffffff'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            sequence: {
+                useMaxWidth: false,
+                wrap: true
+            },
+            gantt: {
+                useMaxWidth: false
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize mermaid controls after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMermaidControls();
+        });
+
+        // Mobile TOC Toggle
+        document.getElementById('toc-toggle').addEventListener('click', function() {
+            document.querySelector('.toc-fixed').classList.toggle('open');
+        });
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile TOC
+                    document.querySelector('.toc-fixed').classList.remove('open');
+                }
+            });
+        });
+
+        // Highlight active TOC link
+        function highlightActiveTocLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveTocLink);
+        window.addEventListener('load', highlightActiveTocLink);
+
+        // Close mobile TOC when clicking outside
+        document.addEventListener('click', function(e) {
+            const toc = document.querySelector('.toc-fixed');
+            const toggle = document.getElementById('toc-toggle');
+            
+            if (!toc.contains(e.target) && !toggle.contains(e.target)) {
+                toc.classList.remove('open');
+            }
+        });
+    </script>
+  
+
+</body></html>
